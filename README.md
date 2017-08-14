@@ -2,6 +2,12 @@
 
 *最近在学习vue ssr，将学习过程做的一些例子做了一些整理，汇集于此*
 
+```bash
+$ git clone ...
+$ cd vue-ssr-exapmple
+$ npm install
+```
+
 ## demo1-基本例子
 
 ```bash
