@@ -36,7 +36,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:demo1": "node ./demo1/server.js"
+    "demo1": "node ./demo1/server.js",
+    "demo2": "node ./demo2/index.js"
   },
   "author": "",
   "license": "ISC"

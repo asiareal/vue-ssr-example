@@ -1,5 +1,5 @@
-// 请参照：https://ssr.vuejs.org/zh/basic.html
 // 服务端渲染基本用法
+// 请参照：https://ssr.vuejs.org/zh/basic.html
 
 const Vue = require('vue')
 const server = require('express')()
