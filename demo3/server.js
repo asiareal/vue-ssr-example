@@ -1,29 +1,29 @@
-// 服务端渲染基本用法
-// 请参照：https://ssr.vuejs.org/zh/basic.html
-
-const Vue = require('vue')
-const server = require('express')()
+// 服务端渲染源码结构demo
+// 请参照：https://ssr.vuejs.org/zh/structure.html
+const express = require('express')
+const server = express()
 const fs = require('fs')
+const path = require('path')
+const resolve = file => path.resolve(__dirname, file)
 const renderer = require('vue-server-renderer').createRenderer({
-  template: fs.readFileSync('./demo1/index.template.html', 'utf-8')
+  template: fs.readFileSync(resolve('index.template.html'), 'utf-8')
 })
 const context = {
-  title: '服务端渲染基本用法',
+  title: '源码结构',
   meta: `
     <meta charset="UTF-8">
   `
 }
+const createApp = require(resolve('dist/server.bundle.js')).default
+
+server.use('/dist', express.static(resolve('./dist')))
+
 server.get('*', (req, res) => {
-  // 新建vue对象
-  const app = new Vue({
-    data: {
-      url: req.url
-    },
-    template: `<div>访问的 URL 是： {{ url }}</div>`
-  })
+  const app = createApp()
   // 将vue对象渲染成字符串，插到指定地方 <!--vue-ssr-outlet-->
   renderer.renderToString(app, context, (err, html) => {
     if (err) {
+      console.log(err)
       res.status(500).end('Internal Server Error')
       return
     }

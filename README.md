@@ -21,3 +21,6 @@ ssr与服务器集成的基本例子，对应[官方文档](https://ssr.vuejs.or
 $ npm run demo2
 ```
 vue组件在服务器端渲染，生命周期钩子函数执行情况，对应[官方文档](https://ssr.vuejs.org/zh/universal.html)
+
+## demo3-源码结构
+
