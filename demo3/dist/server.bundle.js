@@ -7763,7 +7763,7 @@ if (Component.options.functional) {console.error("[vue-loader] child.vue: functi
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._ssrNode("Hello child")])
+  return _c('h1', [_vm._ssrNode("Hello 源码结构")])
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -1,5 +1,5 @@
 <template>
-  <div>Hello child</div>
+  <h1>Hello 源码结构</h1>
 </template>
 
 <script>

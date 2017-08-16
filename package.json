@@ -42,7 +42,11 @@
     "demo3": "npm run build:demo3 && node ./demo3/server.js",
     "build:demo3": "rimraf dist && npm run build:demo3:client && npm run build:demo3:server",
     "build:demo3:client": "webpack --config demo3/build/webpack.client.config.js --progress --hide-modules",
-    "build:demo3:server": "webpack --config demo3/build/webpack.server.config.js --progress --hide-modules"
+    "build:demo3:server": "webpack --config demo3/build/webpack.server.config.js --progress --hide-modules",
+    "demo4": "npm run build:demo4 && node ./demo4/server.js",
+    "build:demo4": "rimraf dist && npm run build:demo4:client && npm run build:demo4:server",
+    "build:demo4:client": "webpack --config demo4/build/webpack.client.config.js --progress --hide-modules",
+    "build:demo4:server": "webpack --config demo4/build/webpack.server.config.js --progress --hide-modules"
   },
   "author": "",
   "license": "ISC"
