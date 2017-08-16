@@ -27,4 +27,4 @@ vue组件在服务器端渲染，生命周期钩子函数执行情况，对应[�
 ```bash
 $ npm run demo3
 ```
-利用webpack打包
+利用webpack打包的一个基本的源码结构
