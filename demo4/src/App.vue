@@ -19,6 +19,8 @@
 <style scoped>
   ul.menu {
     list-style: none;
+    overflow: hidden;
+    padding: 0;
   }
 
   ul.menu > li {
@@ -28,5 +30,9 @@
   ul.menu > li > a {
     display: block;
     padding: 5px;
+  }
+
+  a.router-link-active {
+    background-color: #f5f5dc;
   }
 </style>

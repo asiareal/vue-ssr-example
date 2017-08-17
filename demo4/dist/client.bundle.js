@@ -7875,14 +7875,16 @@ module.exports = function normalizeComponent (
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(4);
 
-// 客户端特定引导逻辑……
 
 var _createApp = Object(__WEBPACK_IMPORTED_MODULE_0__app__["a" /* createApp */])(),
-    app = _createApp.app;
-// 模板中根元素具有 `id="app"`
+    app = _createApp.app,
+    router = _createApp.router;
+// 代码分割应该使用onReady，否则客户端将遇到内容不匹配错误
 
 
-app.$mount('#app');
+router.onReady(function () {
+  app.$mount('#app');
+});
 
 /***/ }),
 /* 4 */
@@ -7900,7 +7902,6 @@ app.$mount('#app');
 // 应用程序、router 和 store 实例
 function createApp() {
   var router = Object(__WEBPACK_IMPORTED_MODULE_2__router__["a" /* createRouter */])();
-
   var app = new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
     router: router,
     // 根实例简单的渲染应用程序组件。
@@ -7908,7 +7909,7 @@ function createApp() {
       return h(__WEBPACK_IMPORTED_MODULE_1__App_vue__["a" /* default */]);
     }
   });
-  return { app: app };
+  return { app: app, router: router };
 }
 
 /***/ }),
@@ -8026,7 +8027,7 @@ exports = module.exports = __webpack_require__(9)(undefined);
 
 
 // module
-exports.push([module.i, "\nul.menu[data-v-0d31381a] {\n  list-style: none;\n}\nul.menu > li[data-v-0d31381a] {\n  float: left;\n}\nul.menu > li > a[data-v-0d31381a] {\n  display: block;\n  padding: 5px;\n}\n", ""]);
+exports.push([module.i, "\nul.menu[data-v-0d31381a] {\n  list-style: none;\n  overflow: hidden;\n  padding: 0;\n}\nul.menu > li[data-v-0d31381a] {\n  float: left;\n}\nul.menu > li > a[data-v-0d31381a] {\n  display: block;\n  padding: 5px;\n}\na.router-link-active[data-v-0d31381a] {\n  background-color: #f5f5dc;\n}\n", ""]);
 
 // exports
 

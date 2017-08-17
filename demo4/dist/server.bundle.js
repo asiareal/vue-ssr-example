@@ -7631,11 +7631,30 @@ module.exports = function normalizeComponent (
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(3);
 
-/* harmony default export */ __webpack_exports__["default"] = (function (context) {
-  var _createApp = Object(__WEBPACK_IMPORTED_MODULE_0__app__["a" /* createApp */])(),
-      app = _createApp.app;
 
-  return app;
+/* harmony default export */ __webpack_exports__["default"] = (function (context) {
+  // 因为有可能会是异步路由钩子函数或组件，所以我们将返回一个 Promise，
+  // 以便服务器能够等待所有的内容在渲染前，
+  // 就已经准备就绪。
+  return new Promise(function (resolve, reject) {
+    var _createApp = Object(__WEBPACK_IMPORTED_MODULE_0__app__["a" /* createApp */])(),
+        app = _createApp.app,
+        router = _createApp.router;
+    // 设置服务器端 router 的位置
+
+
+    router.push(context.url);
+    // 等到 router 将可能的异步组件和钩子函数解析完
+    router.onReady(function () {
+      var matchedComponents = router.getMatchedComponents();
+      // 匹配不到的路由，执行 reject 函数，并返回 404
+      if (!matchedComponents.length) {
+        return reject({ code: 404 });
+      }
+      // Promise 应该 resolve 应用程序实例，以便它可以渲染
+      resolve(app);
+    });
+  });
 });
 
 /***/ }),
@@ -7654,7 +7673,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 // 应用程序、router 和 store 实例
 function createApp() {
   var router = Object(__WEBPACK_IMPORTED_MODULE_2__router__["a" /* createRouter */])();
-
   var app = new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
     router: router,
     // 根实例简单的渲染应用程序组件。
@@ -7662,7 +7680,7 @@ function createApp() {
       return h(__WEBPACK_IMPORTED_MODULE_1__App_vue__["a" /* default */]);
     }
   });
-  return { app: app };
+  return { app: app, router: router };
 }
 
 /***/ }),
@@ -7726,7 +7744,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "\nul.menu[data-v-0d31381a] {\n  list-style: none;\n}\nul.menu > li[data-v-0d31381a] {\n  float: left;\n}\nul.menu > li > a[data-v-0d31381a] {\n  display: block;\n  padding: 5px;\n}\n", ""]);
+exports.push([module.i, "\nul.menu[data-v-0d31381a] {\n  list-style: none;\n  overflow: hidden;\n  padding: 0;\n}\nul.menu > li[data-v-0d31381a] {\n  float: left;\n}\nul.menu > li > a[data-v-0d31381a] {\n  display: block;\n  padding: 5px;\n}\na.router-link-active[data-v-0d31381a] {\n  background-color: #f5f5dc;\n}\n", ""]);
 
 // exports
 

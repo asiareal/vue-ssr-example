@@ -1,5 +1,6 @@
 import { createApp } from './app'
-// 客户端特定引导逻辑……
-const { app } = createApp()
-// 模板中根元素具有 `id="app"`
-app.$mount('#app')
+const { app, router } = createApp()
+// 代码分割应该使用onReady，否则客户端将遇到内容不匹配错误
+router.onReady(() => {
+  app.$mount('#app')
+})
