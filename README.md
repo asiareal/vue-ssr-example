@@ -40,3 +40,12 @@ $ npm run demo4
 ```
 
 webpack 打包路由和代码分割的实现，对应[官方文档](https://ssr.vuejs.org/zh/routing.html)
+
+## demo5-数据预取和状态
+
+```bash
+$ npm run demo5
+```
+
+数据预取和状态demo实现，对应[官方文档](https://ssr.vuejs.org/zh/data.html)
+
