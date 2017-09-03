@@ -34,3 +34,9 @@ $ npm run demo3
 ![打包](assets/images/build.png)
 
 ## demo4-路由和代码分割
+
+```bash
+$ npm run demo4
+```
+
+webpack 打包路由和代码分割的实现，对应[官方文档](https://ssr.vuejs.org/zh/routing.html)

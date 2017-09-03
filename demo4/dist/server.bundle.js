@@ -7704,7 +7704,7 @@ var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = "data-v-0d31381a"
 /* moduleIdentifier (server only) */
-var __vue_module_identifier__ = "25643a71"
+var __vue_module_identifier__ = "2602de12"
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__["a" /* default */],
   __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0d31381a_hasScoped_true_preserveWhitespace_false_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
