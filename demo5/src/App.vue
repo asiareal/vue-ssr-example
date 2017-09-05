@@ -2,10 +2,10 @@
   <div id="app">
     <ul class="menu">
       <li>
-        <router-link to="/page1">page1</router-link>
+        <router-link to="/item/1">item1</router-link>
       </li>
       <li>
-        <router-link to="/page2">page2</router-link>
+        <router-link to="/item/2">item2</router-link>
       </li>
     </ul>
     <router-view></router-view>
