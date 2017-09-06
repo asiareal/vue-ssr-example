@@ -49,3 +49,5 @@ $ npm run demo5
 
 数据预取和状态demo实现，对应[官方文档](https://ssr.vuejs.org/zh/data.html)
 
+## demo6
+
