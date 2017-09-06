@@ -19,8 +19,8 @@ const createApp = require(resolve('dist/server.bundle.js')).default
 server.use('/dist', express.static(resolve('./dist')))
 
 server.get('*', (req, res) => {
-  const params = { url: req.url }
-  createApp(params).then(app => {
+  context.url = req.url
+  createApp(context).then(app => {
     renderer.renderToString(app, context, (err, html) => {
       if (err) {
         if (err.code === 404) {
@@ -33,7 +33,6 @@ server.get('*', (req, res) => {
       }
     })
   }, err => {
-    console.log(err)
     if (err.code === 404) {
       res.status(404).end('Page not found')
     } else {

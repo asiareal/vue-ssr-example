@@ -8032,7 +8032,7 @@ var Item = function Item() {
 function createRouter() {
   return new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     mode: 'history',
-    routers: [{ path: '/', redirect: '/item/1' }, { path: '/item/1', component: Item }]
+    routes: [{ path: '/', redirect: '/item/1' }, { path: '/item/:id', component: Item }]
   });
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div>{{ item.title }}</div>
+  <div>{{ item && item.title }}</div>
 </template>
 <script>
 export default {
