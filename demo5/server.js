@@ -9,7 +9,7 @@ const renderer = require('vue-server-renderer').createRenderer({
   template: fs.readFileSync(resolve('index.template.html'), 'utf-8')
 })
 const context = {
-  title: '路由和代码分割',
+  title: '数据预取和状态',
   meta: `
     <meta charset="UTF-8">
   `
