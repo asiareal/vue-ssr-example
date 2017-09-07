@@ -57,4 +57,12 @@ $ npm run demo5-mixin
 
 数据预取和状态demo实现，对应[官方文档](https://ssr.vuejs.org/zh/data.html)
 
+## demo6 客户端混合
+
+```bash
+$ npm run demo6
+```
+
+一个混合失败的例子实现，对应[官方文档](https://ssr.vuejs.org/zh/hydration.html)
+
 
