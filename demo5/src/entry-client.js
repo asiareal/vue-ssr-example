@@ -4,6 +4,7 @@ import { createApp } from './app'
 // a global mixin that calls `asyncData` when a route component's params change
 Vue.mixin({
   beforeRouteUpdate (to, from, next) {
+    console.log('beforeRouteUpdate')
     const { asyncData } = this.$options
     if (asyncData) {
       asyncData({
@@ -29,6 +30,7 @@ router.onReady(() => {
   // 以便我们不会二次预取(double-fetch)已有的数据。
   // 使用 `router.beforeResolve()`，以便确保所有异步组件都 resolve。
   router.beforeResolve((to, from, next) => {
+    console.log('beforeResolve')
     const matched = router.getMatchedComponents(to)
     const prevMatched = router.getMatchedComponents(from)
     // 我们只关心之前没有渲染的组件

@@ -7881,6 +7881,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 // a global mixin that calls `asyncData` when a route component's params change
 __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].mixin({
   beforeRouteUpdate: function beforeRouteUpdate(to, from, next) {
+    console.log('beforeRouteUpdate');
     var asyncData = this.$options.asyncData;
 
     if (asyncData) {
@@ -7910,6 +7911,7 @@ router.onReady(function () {
   // 以便我们不会二次预取(double-fetch)已有的数据。
   // 使用 `router.beforeResolve()`，以便确保所有异步组件都 resolve。
   router.beforeResolve(function (to, from, next) {
+    console.log('beforeResolve');
     var matched = router.getMatchedComponents(to);
     var prevMatched = router.getMatchedComponents(from);
     // 我们只关心之前没有渲染的组件

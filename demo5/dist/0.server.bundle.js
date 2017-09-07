@@ -48,6 +48,7 @@ if (Component.options.functional) {console.error("[vue-loader] item.vue: functio
     var store = _ref.store,
         route = _ref.route;
 
+    console.log('asyncData');
     // 触发 action 后，会返回 Promise
     return store.dispatch('fetchItem', route.params.id);
   },
