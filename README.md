@@ -29,10 +29,6 @@ $ npm run demo3
 ```
 利用webpack打包的一个基本的源码结构实现, 对应[官方文档](https://ssr.vuejs.org/zh/structure.html)
 
-参照模式：
-
-![打包](assets/images/build.png)
-
 ## [demo4 路由和代码分割](./demo4)
 
 ```bash
