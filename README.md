@@ -1,4 +1,4 @@
-# vue ssr 服务器端渲染例子
+# [vue ssr 服务器端渲染例子](./demo1)
 
 *最近在学习vue ssr，官方文档有的地方未给出实际例子，我将学习过程做的一些demo整理了一下，汇集于此，可供大家参考*
 
@@ -64,5 +64,8 @@ $ npm run demo6
 ```
 
 一个混合失败的例子实现，对应[官方文档](https://ssr.vuejs.org/zh/hydration.html)
+
+## demo7 Bundle Renderer 的构建配置
+
 
 
