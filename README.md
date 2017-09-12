@@ -63,5 +63,7 @@ $ npm run demo6
 
 ## demo7 Bundle Renderer 的构建配置
 
+ssr实现热加载，对应官方文档，[Bundle Renderer 指引](https://ssr.vuejs.org/zh/bundle-renderer.html)，[构建配置](https://ssr.vuejs.org/zh/build-config.html)
+
 
 

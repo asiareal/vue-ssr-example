@@ -47,7 +47,8 @@
     "demo4": "module=demo4 npm run _start",
     "demo5": "module=demo5 npm run _start",
     "demo5-mixin": "module=demo5-mixin npm run _start",
-    "demo6": "module=demo6 npm run _start"
+    "demo6": "module=demo6 npm run _start",
+    "demo7": "module=demo7 npm run _start"
   },
   "author": "",
   "license": "ISC"

@@ -1,5 +1,3 @@
-// 服务端渲染源码结构demo
-// 请参照：https://ssr.vuejs.org/zh/structure.html
 const express = require('express')
 const server = express()
 const fs = require('fs')
@@ -9,7 +7,7 @@ const renderer = require('vue-server-renderer').createRenderer({
   template: fs.readFileSync(resolve('index.template.html'), 'utf-8')
 })
 const context = {
-  title: '源码结构',
+  title: '客户端混合',
   meta: `
     <meta charset="UTF-8">
   `
