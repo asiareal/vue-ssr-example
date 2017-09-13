@@ -8,9 +8,9 @@ const Item = () => import('src/components/item')
 export function createRouter() {
   return new Router({
     mode: 'history',
-    routers: [
+    routes: [
       {path: '/', redirect: '/item/1'},
-      {path: '/item/1', component: Item}
+      {path: '/item/:id', component: Item}
     ]
   })
 }

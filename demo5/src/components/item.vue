@@ -1,9 +1,10 @@
 <template>
-  <div>{{ item.title }}</div>
+  <div>{{ item && item.title }}</div>
 </template>
 <script>
 export default {
   asyncData ({ store, route }) {
+    console.log('asyncData')
     // 触发 action 后，会返回 Promise
     return store.dispatch('fetchItem', route.params.id)
   },

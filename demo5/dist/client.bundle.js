@@ -7578,7 +7578,7 @@ setTimeout(function () {
 
 /* harmony default export */ __webpack_exports__["a"] = (Vue$3);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(4)))
 
 /***/ }),
 /* 1 */
@@ -7873,10 +7873,29 @@ module.exports = function normalizeComponent (
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app__ = __webpack_require__(5);
 
 
-var _createApp = Object(__WEBPACK_IMPORTED_MODULE_0__app__["a" /* createApp */])(),
+
+// a global mixin that calls `asyncData` when a route component's params change
+__WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].mixin({
+  beforeRouteUpdate: function beforeRouteUpdate(to, from, next) {
+    console.log('beforeRouteUpdate');
+    var asyncData = this.$options.asyncData;
+
+    if (asyncData) {
+      asyncData({
+        store: this.$store,
+        route: to
+      }).then(next).catch(next);
+    } else {
+      next();
+    }
+  }
+});
+
+var _createApp = Object(__WEBPACK_IMPORTED_MODULE_1__app__["a" /* createApp */])(),
     app = _createApp.app,
     router = _createApp.router,
     store = _createApp.store;
@@ -7884,13 +7903,68 @@ var _createApp = Object(__WEBPACK_IMPORTED_MODULE_0__app__["a" /* createApp */])
 if (window.__INITIAL_STATE__) {
   store.replaceState(window.__INITIAL_STATE__);
 }
+
 // 代码分割应该使用onReady，否则客户端将遇到内容不匹配错误
 router.onReady(function () {
+  // 添加路由钩子函数，用于处理 asyncData.
+  // 在初始路由 resolve 后执行，
+  // 以便我们不会二次预取(double-fetch)已有的数据。
+  // 使用 `router.beforeResolve()`，以便确保所有异步组件都 resolve。
+  router.beforeResolve(function (to, from, next) {
+    console.log('beforeResolve');
+    var matched = router.getMatchedComponents(to);
+    var prevMatched = router.getMatchedComponents(from);
+    // 我们只关心之前没有渲染的组件
+    // 所以我们对比它们，找出两个匹配列表的差异组件
+    var diffed = false;
+    var activated = matched.filter(function (c, i) {
+      return diffed || (diffed = prevMatched[i] !== c);
+    });
+    if (!activated.length) {
+      return next();
+    }
+    // 这里如果有加载指示器(loading indicator)，就触发
+    Promise.all(activated.map(function (c) {
+      if (c.asyncData) {
+        return c.asyncData({ store: store, route: to });
+      }
+    })).then(function () {
+      // 停止加载指示器(loading indicator)
+      next();
+    }).catch(next);
+  });
   app.$mount('#app');
 });
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7923,33 +7997,6 @@ function createApp() {
   // 暴露 app, router 和 store。
   return { app: app, router: router, store: store };
 }
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
 
 /***/ }),
 /* 6 */
@@ -8455,7 +8502,7 @@ var Item = function Item() {
 function createRouter() {
   return new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     mode: 'history',
-    routers: [{ path: '/', redirect: '/item/1' }, { path: '/item/1', component: Item }]
+    routes: [{ path: '/', redirect: '/item/1' }, { path: '/item/:id', component: Item }]
   });
 }
 
