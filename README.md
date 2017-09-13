@@ -61,7 +61,14 @@ $ npm run demo6
 
 一个混合失败的例子实现，对应[官方文档](https://ssr.vuejs.org/zh/hydration.html)
 
-## demo7 Bundle Renderer 的构建配置
+## [demo7 Bundle Renderer 的构建配置](./demo7)
+
+```bash
+# production
+$ npm run demo7
+# dev
+$ npm run demo7:dev
+```
 
 ssr实现热加载，对应官方文档，[Bundle Renderer 指引](https://ssr.vuejs.org/zh/bundle-renderer.html)，[构建配置](https://ssr.vuejs.org/zh/build-config.html)
 

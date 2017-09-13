@@ -1,8 +1,10 @@
 const path = require('path')
 const vueConfig = require('./vue-loader.conf')
 
+const isProd = process.env.NODE_ENV === 'production'
+
 module.exports = {
-  devtool: 'source-map',
+  devtool: isProd ? false : 'cheap-module-source-map',
   output: {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/dist/',

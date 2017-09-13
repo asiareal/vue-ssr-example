@@ -7799,9 +7799,7 @@ module.exports = g;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_761f1114_hasScoped_true_preserveWhitespace_false_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(13);
-var disposed = false
 function injectStyle (ssrContext) {
-  if (disposed) return
   __webpack_require__(7)
 }
 var normalizeComponent = __webpack_require__(2)
@@ -7822,25 +7820,6 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "demo7/src/App.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] App.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-761f1114", Component.options)
-  } else {
-    hotAPI.reload("data-v-761f1114", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
 
 /* harmony default export */ __webpack_exports__["a"] = (Component.exports);
 
@@ -7856,31 +7835,18 @@ var content = __webpack_require__(8);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(10)("6593daec", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-761f1114\",\"scoped\":true,\"hasInlineConfig\":false}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./App.vue", function() {
-     var newContent = require("!!../../node_modules/css-loader/index.js?sourceMap!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-761f1114\",\"scoped\":true,\"hasInlineConfig\":false}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./App.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
+var update = __webpack_require__(10)("3b3a7a4d", content, true);
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(9)(true);
+exports = module.exports = __webpack_require__(9)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, "\nul.menu[data-v-761f1114] {\n  list-style: none;\n  overflow: hidden;\n  padding: 0;\n}\nul.menu > li[data-v-761f1114] {\n  float: left;\n}\nul.menu > li > a[data-v-761f1114] {\n  display: block;\n  padding: 5px;\n}\na.router-link-active[data-v-761f1114] {\n  background-color: #f5f5dc;\n}\n", "", {"version":3,"sources":["/Users/mac/code/my-project/vue-ssr-example/demo7/src/demo7/src/App.vue?dfdd60d8"],"names":[],"mappings":";AAmBA;EACA,iBAAA;EACA,iBAAA;EACA,WAAA;CACA;AAEA;EACA,YAAA;CACA;AAEA;EACA,eAAA;EACA,aAAA;CACA;AAEA;EACA,0BAAA;CACA","file":"App.vue","sourcesContent":["<template>\n  <div id=\"app\">\n    <ul class=\"menu\">\n      <li>\n        <router-link to=\"/page1\">page1</router-link>\n      </li>\n      <li>\n        <router-link to=\"/page2\">page2</router-link>\n      </li>\n    </ul>\n    <router-view></router-view>\n  </div>\n</template>\n\n<script>\n  export default {}\n</script>\n\n<style scoped>\n  ul.menu {\n    list-style: none;\n    overflow: hidden;\n    padding: 0;\n  }\n\n  ul.menu > li {\n    float: left;\n  }\n\n  ul.menu > li > a {\n    display: block;\n    padding: 5px;\n  }\n\n  a.router-link-active {\n    background-color: #f5f5dc;\n  }\n</style>\n"],"sourceRoot":""}]);
+exports.push([module.i, "ul.menu[data-v-761f1114]{list-style:none;overflow:hidden;padding:0}ul.menu>li[data-v-761f1114]{float:left}ul.menu>li>a[data-v-761f1114]{display:block;padding:5px}a.router-link-active[data-v-761f1114]{background-color:beige}", ""]);
 
 // exports
 
@@ -8266,15 +8232,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("page2")])], 1)]), _c('router-view')], 1)
 }
 var staticRenderFns = []
-render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-761f1114", esExports)
-  }
-}
 
 /***/ }),
 /* 14 */
@@ -10818,4 +10777,3 @@ if (inBrowser && window.Vue) {
 
 /***/ })
 ],[3]);
-//# sourceMappingURL=main.6fb57606c0fb358a3459.js.map

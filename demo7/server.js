@@ -5,12 +5,8 @@ const path = require('path')
 const resolve = file => path.resolve(__dirname, file)
 const { createBundleRenderer } = require('vue-server-renderer')
 const template = require('fs').readFileSync(resolve('index.template.html'), 'utf-8')
-const serverBundle = require(resolve('dist/vue-ssr-server-bundle.json'))
-const clientManifest = require(resolve('dist/vue-ssr-client-manifest.json'))
-const renderer = createBundleRenderer(serverBundle, {
-  template,
-  clientManifest
-})
+
+const isProd = process.env.NODE_ENV === 'production'
 const context = {
   title: 'Bundle Renderer 的构建配置',
   meta: `
@@ -18,9 +14,30 @@ const context = {
   `
 }
 
-server.use('/dist', express.static(resolve('./dist')))
+const createRenderer = (bundle, options) => {
+  return createBundleRenderer(bundle, Object.assign(options, {
+    template
+  }))
+}
 
-server.get('*', (req, res) => {
+let renderer
+let readyPromise
+
+if(isProd) {
+  const serverBundle = require(resolve('dist/vue-ssr-server-bundle.json'))
+  const clientManifest = require(resolve('dist/vue-ssr-client-manifest.json'))
+
+  renderer = createRenderer(serverBundle, {
+    clientManifest
+  })
+} else {
+  readyPromise = require(resolve('build/setup-dev-server.js'))(server, (bundle, options) => {
+    renderer = createRenderer(bundle, options)
+  })
+}
+
+
+const render = (req, res) => {
   context.url = req.url
   renderer.renderToString(context, (err, html) => {
     if (err) {
@@ -33,6 +50,12 @@ server.get('*', (req, res) => {
       res.end(html)
     }
   })
+}
+
+server.use('/dist', express.static(resolve('./dist')))
+
+server.get('*', isProd ? render : (req, res) => {
+  readyPromise.then(() => render(req, res))
 })
 
 const port = process.env.PORT || 8080
