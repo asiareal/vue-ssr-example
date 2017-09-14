@@ -72,5 +72,9 @@ $ npm run demo7:dev
 
 ssr实现热加载，对应官方文档，[Bundle Renderer 指引](https://ssr.vuejs.org/zh/bundle-renderer.html)，[构建配置](https://ssr.vuejs.org/zh/build-config.html)
 
+# [demo8 CSS 管理](./demo8)
 
+```bash
+$ npm run demo8
+```
 
