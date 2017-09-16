@@ -53,7 +53,8 @@
     "demo6": "module=demo6 npm run _start",
     "demo7": "cross-env NODE_ENV=production module=demo7 npm run _start",
     "demo7:dev": "node ./demo7/server",
-    "demo8": "cross-env NODE_ENV=production module=demo8 npm run _start"
+    "demo8": "cross-env NODE_ENV=production module=demo8 npm run _start",
+    "demo9": "cross-env NODE_ENV=production module=demo9 npm run _start"
   },
   "author": "",
   "license": "ISC"

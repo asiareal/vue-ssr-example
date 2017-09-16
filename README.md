@@ -78,3 +78,9 @@ ssr实现热加载，对应官方文档，[Bundle Renderer 指引](https://ssr.v
 $ npm run demo8
 ```
 
+# [demo9 Head 管理](./demo9)
+
+```bash
+$ npm run demo9
+```
+
