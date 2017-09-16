@@ -77,10 +77,13 @@ ssr实现热加载，对应官方文档，[Bundle Renderer 指引](https://ssr.v
 ```bash
 $ npm run demo8
 ```
+css 提取实现，对应官方文档，[css 管理](https://ssr.vuejs.org/zh/css.html)
 
 # [demo9 Head 管理](./demo9)
 
 ```bash
 $ npm run demo9
 ```
+
+ssr动态Head改变实现方案，对应官网文档，[Head 管理](https://ssr.vuejs.org/zh/head.html)
 
