@@ -1,5 +1,3 @@
-// 服务端渲染源码结构demo
-// 请参照：https://ssr.vuejs.org/zh/structure.html
 const express = require('express')
 const server = express()
 const fs = require('fs')
